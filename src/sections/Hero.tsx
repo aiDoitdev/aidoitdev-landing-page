@@ -10,7 +10,7 @@ export const Hero = () => {
       <p className="text-lg text-white/70 mt-5 text-center">Helping Devs to boost the productivity</p>
       <div className="flex justify-center mt-5">
       <Button>
-        Join Waitlist
+        Join WaitList
       </Button>
       </div>
     </div>
