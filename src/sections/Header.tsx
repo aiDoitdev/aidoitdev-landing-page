@@ -1,6 +1,6 @@
 import LogoIcon from '@/assets/logo.svg'
 import MenuIcon from '@/assets/icon-menu.svg'
-import Button from '@/components/common/Button';
+import JoinWaitlistButton from '@/components/common/JoinWaitlistButton';
 
 export const Header = () => {
   return <header className="py-4 border-b border-white/15 md:border-none">
@@ -21,7 +21,7 @@ export const Header = () => {
           </nav>
         </div>
         <div className='flex gap-4 items-center'>
-          <Button>Join Waitlist</Button>
+          <JoinWaitlistButton />
         </div>
       </div>
     </div>
