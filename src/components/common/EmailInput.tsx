@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdPerson } from 'react-icons/md';
-import Button from './Button';
 
 const EmailInput = () => {
   return (
