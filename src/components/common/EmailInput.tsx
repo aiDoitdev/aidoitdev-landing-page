@@ -17,7 +17,12 @@ const EmailInput = () => {
   };
 
   const handleSubmit = async () => {
-    if (!isValid) return;
+    if (!isValid || email.trim() === '') {
+      toast.error('Invalid Email Buddy!', {
+        position: "bottom-center",
+      });
+      return;
+    }
 
     const { error } = await supabase
       .from('email')
@@ -28,7 +33,7 @@ const EmailInput = () => {
         position: "bottom-center",
       });
     } else {
-      toast.success('Successfully Subscribed', {
+      toast.success("Boom! You're In!", {
         position: "bottom-center",
       });
       setEmail('');
