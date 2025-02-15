@@ -7,34 +7,45 @@ export const Hero = () => {
     style={{backgroundImage: `url(${starsBg.src})`}}
   >
     <div className="container px-4 md:px-6">
-      <h1 className="text-4xl sm:text-6xl md:text-8xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight">
-        Build Your SAAS/MVP<br />
-        From Idea to Launch in 10<br className="sm:hidden" /> Days
+      <h1 className="text-4xl sm:text-7xl md:text-9xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight">
+        <div className="space-y-4 sm:space-y-6">
+          <div>
+            Launch your <span className="relative">AI MVP<span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.4rem] sm:h-[0.5rem] bg-white rounded-[100%/50%]"></span></span>
+          </div>
+          <div>
+            in next <span className="relative">2 weeks<span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.4rem] sm:h-[0.5rem] bg-white rounded-[100%/50%]"></span></span>
+          </div>
+        </div>
       </h1>
       
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-8 sm:mt-10">
         <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-[#1D1E3C] rounded-full text-sm sm:text-base">
-          <span className="text-[#8B8DFF] mr-2 flex items-center">
-            <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Limited Availability
+          <span className="hidden sm:flex text-[#8B8DFF] mr-2 items-center">
+           🗓️ Limited Availability
           </span>
-          <span className="text-white">4 spots for February</span>
+          <span className="sm:hidden text-[#8B8DFF] mr-2 flex items-center">
+           🗓️
+          </span>
+          <span className="text-white">
+            <span className="sm:hidden">3 spots available for {new Date().toLocaleString('default', { month: 'short' })}</span>
+            <span className="hidden sm:inline">3 spots for {new Date().toLocaleString('default', { month: 'long' })}</span>
+          </span>
         </div>
       </div>
 
-      <p className="text-base sm:text-lg text-white/70 mt-4 sm:mt-5 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2">
-        Turn your vision into a market-ready product in just 14 days. We build beautiful, scalable web and mobile apps that get your business off the ground—fast.
+      <p className="text-lg sm:text-xl md:text-2xl text-white mt-8 sm:mt-10 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2">
+       🚀 We build AI MVPs for founders—fast, efficient, and powered by the latest AI tools ⚡
       </p>
 
-      <div className="flex justify-center mt-6 sm:mt-8">
-        <a href="https://cal.com/aidoit.dev/mvp"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="w-full sm:w-auto bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-white/90 mx-4 sm:mx-0">
-          Schedule a call →
-        </a>
+      <div className="flex justify-center mt-10">
+        <Button>
+          <a href="https://cal.com/aidoit.dev/mvp"
+             target="_blank"
+             rel="noopener noreferrer"
+             >
+            <span className="text-3xl sm:text-2xl font-bold">CALL NOW <span className="text-white">📞</span></span>
+          </a>
+        </Button>
       </div>
     </div>
   </section>;

@@ -3,7 +3,7 @@ import MenuIcon from '@/assets/icon-menu.svg'
 import JoinWaitlistButton from '@/components/common/JoinWaitlistButton';
 
 export const Header = () => {
-  return <header className="py-4 sm:py-6 border-b border-white/15 md:border-none fixed top-0 left-0 right-0 bg-black z-50">
+  return <header className="py-4 sm:py-6 border-b border-white/15 md:border-none fixed top-0 left-0 right-0 bg-transparent backdrop-blur-sm z-50">
     <div className="container">
       <div className="flex justify-between items-center md:border border-white/15 md:p-4 rounded-xl mx-auto">
         <div className='flex items-center'>
