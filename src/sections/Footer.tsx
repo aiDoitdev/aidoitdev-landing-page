@@ -11,7 +11,7 @@ export const Footer = () => {
               AiDOiT
             </Link>
             <p className="text-white/70 text-sm">
-              Transforming ideas into market-ready products in just 10 Days. We specialize in building innovative digital solutions for businesses worldwide.
+              Transforming ideas into market-ready products in 2 Weeks. We specialize in building innovative digital solutions for businesses worldwide.
             </p>
             <div className="flex space-x-4">
               <Link href="https://twitter.com" className="text-white/70 hover:text-white">
