@@ -75,7 +75,7 @@ const pricingPlans: PricingPlan[] = [
 
 export const Pricing = () => {
   return (
-    <section className="py-20 bg-black">
+    <section id="pricing" className="py-20 bg-black">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text">

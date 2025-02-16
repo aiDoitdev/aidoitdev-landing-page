@@ -37,7 +37,7 @@ export function Process() {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section id="how-it-works" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-sm text-white/70 mb-4">

@@ -3,22 +3,30 @@ import starsBg from '@/assets/stars.png'
 import EmailInput from "@/components/common/EmailInput";
 
 export const Hero = () => {
-  return <section className="min-h-screen pt-[120px] sm:pt-[140px] flex items-start sm:items-center"
+  return <section className="min-h-screen pt-[80px] sm:pt-[140px] flex items-start sm:items-center"
     style={{backgroundImage: `url(${starsBg.src})`}}
   >
     <div className="container px-4 md:px-6">
-      <h1 className="text-3xl sm:text-6xl md:text-8xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight">
+      <h1 className="opacity-0 text-2xl sm:text-6xl md:text-8xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight animate-fade-in">
         <div className="space-y-4 sm:space-y-6">
-          <div>
-            Launch your <span>AI MVP<span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.4rem] sm:h-[0.5rem] bg-white rounded-[100%/50%]"></span></span>
+          <div className="opacity-0 animate-slide-up [animation-delay:300ms]">
+            Launch your <span className="relative">AI MVP
+              <span className="absolute bottom-0 left-0 w-full h-[0.2em]" style={{ 
+                background: 'linear-gradient(179deg, rgb(74,32,138) 0%, rgb(74,32,138) 50%, transparent 54%, transparent 100%)'
+              }}></span>
+            </span>
           </div>
-          <div>
-            in next <span>2 weeks<span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.4rem] sm:h-[0.5rem] bg-white rounded-[100%/50%]"></span></span>
+          <div className="opacity-0 animate-slide-up [animation-delay:500ms]">
+            in next <span className="relative">2 weeks
+              <span className="absolute bottom-0 left-0 w-full h-[0.2em]" style={{ 
+                background: 'linear-gradient(179deg, rgb(74,32,138) 0%, rgb(74,32,138) 50%, transparent 54%, transparent 100%)'
+              }}></span>
+            </span>
           </div>
         </div>
       </h1>
       
-      <div className="flex justify-center mt-8 sm:mt-10">
+      <div className="opacity-0 flex justify-center mt-8 sm:mt-10 animate-fade-in [animation-delay:700ms]">
         <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-[#1D1E3C] rounded-full text-sm sm:text-base">
           <span className="hidden sm:flex text-[#8B8DFF] mr-2 items-center">
            🗓️ Limited Availability
@@ -33,11 +41,11 @@ export const Hero = () => {
         </div>
       </div>
 
-      <p className="text-base sm:text-lg md:text-xl text-white mt-8 sm:mt-10 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2">
-       🚀 We build AI MVPs for founders—fast, efficient, and powered by the latest AI tools ⚡
+      <p className="opacity-0 text-base sm:text-lg md:text-xl text-white mt-8 sm:mt-10 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2 animate-fade-in [animation-delay:900ms]">
+       🚀 We build AI MVPs for founders fast, efficient, and powered by the latest AI tools ⚡
       </p>
 
-      <div className="flex justify-center mt-10">
+      <div className="opacity-0 flex justify-center mt-10 animate-fade-in [animation-delay:1100ms]">
         <Button>
           <a href="https://cal.com/aidoit.dev/mvp"
              target="_blank"

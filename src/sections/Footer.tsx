@@ -36,11 +36,11 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-white/70 hover:text-white">About Us</Link></li>
-              <li><Link href="/services" className="text-white/70 hover:text-white">Services</Link></li>
-              <li><Link href="/portfolio" className="text-white/70 hover:text-white">Portfolio</Link></li>
-              <li><Link href="/pricing" className="text-white/70 hover:text-white">Pricing</Link></li>
-              <li><Link href="/contact" className="text-white/70 hover:text-white">Contact</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">About Us</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Services</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Portfolio</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Pricing</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Contact</Link></li>
             </ul>
           </div>
 
@@ -48,11 +48,11 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/web-development" className="text-white/70 hover:text-white">Web Development</Link></li>
-              <li><Link href="/mobile-apps" className="text-white/70 hover:text-white">Mobile Apps</Link></li>
-              <li><Link href="/ui-ux-design" className="text-white/70 hover:text-white">UI/UX Design</Link></li>
-              <li><Link href="/cloud-solutions" className="text-white/70 hover:text-white">Cloud Solutions</Link></li>
-              <li><Link href="/consulting" className="text-white/70 hover:text-white">Consulting</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Web Development</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Mobile Apps</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">UI/UX Design</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Project Support</Link></li>
+              <li><Link href="/" className="text-white/70 hover:text-white">Mock Interviews</Link></li>
             </ul>
           </div>
 

@@ -8,20 +8,29 @@ export const LiftMotivation = () => {
           READY FOR LIFTOFF?
         </h1>
 
+      
         <div className="flex justify-center gap-4 mt-8">
+         <Button>
           <a href="https://cal.com/aidoit.dev/mvp"
              target="_blank"
              rel="noopener noreferrer"
-             className="bg-[#FF3B1D] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#FF3B1D]/90">
+             >
             SCHEDULE STRATEGY CALL
           </a>
+          </Button>
         </div>
+        
 
         <div className="flex justify-center mt-6">
           <div className="inline-flex items-center px-4 py-2 bg-[#FF3B1D] rounded-lg text-white text-sm">
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#FFD700] rounded-full"></span>
-              ONLY 3 SLOTS LEFT FOR MARCH
+            
+            <div className="relative inline-flex">
+               <div className="w-4 h-4 bg-[#FFD700] rounded-full"></div>
+               <div className="w-4 h-4 bg-[#FFD700] rounded-full absolute top-0 left-0 animate-ping"></div>
+               <div className="w-4 h-4 bg-[#FFD700] rounded-full absolute top-0 left-0 animate-pulse"></div>
+            </div>
+              Only 3 Slots Left for {new Date().toLocaleString('default', { month: 'short' })}
             </span>
           </div>
         </div>
