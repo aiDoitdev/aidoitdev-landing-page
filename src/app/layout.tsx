@@ -6,8 +6,8 @@ import {twMerge} from "tailwind-merge";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ai DO iT",
-  description: "Let Ai DO for you",
+  title: "AiDOiT",
+  description: "AI MVP in 2 Weeks",
 };
 
 export default function RootLayout({

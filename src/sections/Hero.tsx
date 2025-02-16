@@ -7,7 +7,7 @@ export const Hero = () => {
     style={{backgroundImage: `url(${starsBg.src})`}}
   >
     <div className="container px-4 md:px-6">
-      <h1 className="text-4xl sm:text-7xl md:text-9xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight">
+      <h1 className="text-3xl sm:text-6xl md:text-8xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight">
         <div className="space-y-4 sm:space-y-6">
           <div>
             Launch your <span className="relative">AI MVP<span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[0.4rem] sm:h-[0.5rem] bg-white rounded-[100%/50%]"></span></span>
@@ -33,7 +33,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <p className="text-lg sm:text-xl md:text-2xl text-white mt-8 sm:mt-10 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2">
+      <p className="text-base sm:text-lg md:text-xl text-white mt-8 sm:mt-10 text-center max-w-[90%] sm:max-w-4xl mx-auto px-2">
        🚀 We build AI MVPs for founders—fast, efficient, and powered by the latest AI tools ⚡
       </p>
 
