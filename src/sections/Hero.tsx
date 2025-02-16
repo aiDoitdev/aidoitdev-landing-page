@@ -9,12 +9,17 @@ export const Hero = () => {
     <div className="container px-4 md:px-6">
       <h1 className="opacity-0 text-2xl sm:text-6xl md:text-8xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text text-center leading-tight animate-fade-in">
         <div className="space-y-4 sm:space-y-6">
-          <div className="opacity-0 animate-slide-up [animation-delay:300ms]">
-            Launch your AI MVP
-          </div>
-          <div className="opacity-0 animate-slide-up [animation-delay:500ms]">
-            in next 2 weeks
-          </div>
+          
+            Launch your <span className="relative">AI MVP
+              <span className="absolute bottom-0 left-0 w-full h-[0.2em]" style={{ 
+                background: 'linear-gradient(179deg, rgb(74,32,138) 0%, rgb(74,32,138) 50%, transparent 54%, transparent 100%)'
+              }}></span>
+            </span>
+            in next <span className="relative">2 weeks
+              <span className="absolute bottom-0 left-0 w-full h-[0.2em]" style={{ 
+                background: 'linear-gradient(179deg, rgb(74,32,138) 0%, rgb(74,32,138) 50%, transparent 54%, transparent 100%)'
+              }}></span>
+            </span>
         </div>
       </h1>
       
