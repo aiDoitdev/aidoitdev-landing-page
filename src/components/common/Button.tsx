@@ -13,6 +13,6 @@ const Button = (props: React.PropsWithChildren) => {
       </div>
     </button>
   );
-};
+}
 
 export default Button;
