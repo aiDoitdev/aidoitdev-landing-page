@@ -2,9 +2,6 @@
  * @fileoverview Use case detail page
  */
 
-'use client';
-
-import { useMemo } from 'react';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Header } from '@/sections/Header';
@@ -21,13 +18,17 @@ interface PageProps {
   };
 }
 
+export async function generateStaticParams() {
+  return USE_CASES.map((useCase) => ({
+    slug: useCase.slug,
+  }));
+}
+
 export default function UseCaseDetailPage({ params }: PageProps): JSX.Element {
   const { slug } = params;
 
   // Find the use case
-  const useCase = useMemo(() => {
-    return USE_CASES.find((uc) => uc.slug === slug);
-  }, [slug]);
+  const useCase = USE_CASES.find((uc) => uc.slug === slug);
 
   if (!useCase) {
     return (

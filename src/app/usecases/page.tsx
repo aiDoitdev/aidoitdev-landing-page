@@ -3,7 +3,6 @@
  */
 
 import type { Metadata } from 'next';
-import { UseCasesHero } from '@/sections/UseCasesHero';
 import { UseCasesList } from '@/sections/UseCasesList';
 import { Footer } from '@/sections/Footer';
 import { Header } from '@/sections/Header';
@@ -33,10 +32,6 @@ export default function UseCasesPage(): JSX.Element {
     <main className="min-h-screen bg-black">
       <ErrorBoundary name="Header">
         <Header />
-      </ErrorBoundary>
-
-      <ErrorBoundary name="UseCasesHero">
-        <UseCasesHero />
       </ErrorBoundary>
 
       <ErrorBoundary name="UseCasesList">
