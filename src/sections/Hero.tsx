@@ -71,6 +71,7 @@ export const Hero: React.FC = () => {
   };
 
   const floatingVariants = {
+    initial: { y: 0 },
     animate: {
       y: [0, -20, 0],
       transition: {
@@ -82,6 +83,7 @@ export const Hero: React.FC = () => {
   };
 
   const rotatingVariants = {
+    initial: { rotate: 0 },
     animate: {
       rotate: 360,
       transition: {
@@ -211,13 +213,14 @@ export const Hero: React.FC = () => {
           {VALUE_PROPS.map((item, idx) => (
             <motion.div
               key={item.text}
-              variants={itemVariants}
+              variants={floatingVariants}
+              initial="initial"
+              animate="animate"
               whileHover={{
                 scale: 1.08,
                 rotateY: 10,
                 y: -10,
               }}
-              animate={floatingVariants}
               style={{
                 transformStyle: "preserve-3d",
               }}
@@ -225,7 +228,9 @@ export const Hero: React.FC = () => {
             >
               <motion.span
                 className="text-2xl block"
-                animate={idx === 1 ? rotatingVariants : { rotate: 0 }}
+                variants={rotatingVariants}
+                initial="initial"
+                animate={idx === 1 ? "animate" : "initial"}
               >
                 {item.icon}
               </motion.span>
