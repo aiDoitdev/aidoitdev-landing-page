@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export function Process() {
   const steps = [
     {
@@ -14,9 +18,9 @@ export function Process() {
     },
     {
       number: 2,
-      title: "We Build Your MVP",
-      description: "Sit back while we handle everything—from design to development. You'll get regular updates and can give feedback throughout the process.",
-      output: "A fully functional MVP ready to launch.",
+      title: "We Build Your Ai MVP",
+      description: "Our team handles everything—from design to development using the latest AI tools. You'll get regular updates and can provide feedback throughout.",
+      output: "A fully functional, production-ready MVP.",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -26,8 +30,9 @@ export function Process() {
     },
     {
       number: 3,
-      title: "Launch and Grow",
-      description: "We deploy your app to the platform of your choice and provide post-launch support to ensure your product runs smoothly and scales with your business.",
+      title: "Launch and Scale",
+      description: "We deploy your app and provide post-launch support. Your MVP is built to scale with your business from day one.",
+      output: "A live product with ongoing support and optimization.",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -36,49 +41,140 @@ export function Process() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
-    <section id="how-it-works" className="py-20 px-4">
+    <section id="how-it-works" className="py-20 md:py-32 px-4">
       <div className="container mx-auto">
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-sm text-white/70 mb-4">
-            Simple Process
+            Our Process
           </div>
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text mb-4">
             How It Works
           </h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Three simple steps to get your MVP
+            A simple, proven process to get your MVP from idea to launch in 1 week
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Process Timeline */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
           {steps.map((step, index) => (
-            <div key={index} className="relative bg-[#1D1E3C]/50 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
-              <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#FFD700] rounded-full flex items-center justify-center text-black font-semibold">
-                {step.number}
-              </div>
-              <div className="bg-[#4A208A] w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                <div className="text-white">
-                  {step.icon}
-                </div>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">
-                {step.title}
-              </h3>
-              <p className="text-white/70 mb-6">
-                {step.description}
-              </p>
-              {step.output && (
-                <div className="bg-white/5 rounded-xl p-4">
-                  <p className="text-white/80 text-sm">
-                    Output: {step.output}
-                  </p>
-                </div>
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative"
+            >
+              {/* Connector Line (hidden on mobile) */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent -z-10" />
               )}
-            </div>
+
+              {/* Card */}
+              <div className="relative bg-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/[0.05] transition-all duration-300 h-full">
+                {/* Step Number Circle */}
+                <motion.div
+                  className="absolute -top-5 -left-5 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {step.number}
+                </motion.div>
+
+                {/* Icon */}
+                <motion.div
+                  className="bg-white/10 border border-white/20 w-16 h-16 rounded-xl flex items-center justify-center mb-6 mt-2"
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                >
+                  <div className="text-white/80">
+                    {step.icon}
+                  </div>
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-semibold text-white mb-4">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-white/70 mb-6 leading-relaxed">
+                  {step.description}
+                </p>
+
+                {/* Output */}
+                {step.output && (
+                  <motion.div
+                    className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10 rounded-xl p-4"
+                    whileHover={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
+                  >
+                    <p className="text-white/80 text-sm font-medium">
+                      <span className="block text-white/60 text-xs mb-1">Expected Output</span>
+                      {step.output}
+                    </p>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <p className="text-white/70 mb-8">
+            Every step is transparent. You'll have weekly check-ins and can request changes anytime.
+          </p>
+          <div className="inline-flex gap-8 flex-wrap justify-center text-sm text-white/60">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>Weekly Updates</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>Transparent Communication</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>Full Support</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-} 
+}

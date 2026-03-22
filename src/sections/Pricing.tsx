@@ -1,4 +1,8 @@
+"use client";
+
 import Button from "@/components/common/Button";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Define types for our pricing data
 type PricingFeature = {
@@ -23,7 +27,7 @@ const pricingPlans: PricingPlan[] = [
     period: "One-time",
     description: "Perfect for early-stage startups looking to launch quickly with essential features.",
     features: [
-      { text: "MVP delivery in 2-3 weeks" },
+      { text: "MVP delivery in 1 week" },
       { text: "Fully responsive Web & Mobile App" },
       { text: "1 Month Free Maintenance & Bug Fixes" },
       { text: "Basic Analytics Dashboard" },
@@ -40,7 +44,7 @@ const pricingPlans: PricingPlan[] = [
     period: "One-time",
     description: "Comprehensive development with advanced features for scaling businesses.",
     features: [
-      { text: "MVP delivery in 2-3 weeks" },
+      { text: "MVP delivery in 1 week" },
       { text: "Advanced Web & Mobile App with custom UI/UX" },
       { text: "3 Months Premium Maintenance & Support" },
       { text: "In-depth Analytics & Performance Reporting" },
@@ -50,15 +54,15 @@ const pricingPlans: PricingPlan[] = [
       { text: "Automated Testing & Deployment Setup" },
     ],
     buttonText: "Get Started with Pro →",
+    isPopular: true,
   },
   {
-    name: "Scale & Support",
-    price: 2999,
-    period: "Monthly",
-    description: "For startups needing stability, custom integrations, and high-performance apps.",
+    name: "Enterprise Scale",
+    price: 4999,
+    period: "One-time",
+    description: "For startups needing maximum customization, dedicated support, and enterprise features.",
     features: [
       { text: "MVP delivery in 3-4 weeks with custom features" },
-      { text: "80+ hours of development time per month" },
       { text: "Enterprise-grade Web & Mobile App" },
       { text: "6 Months Free Maintenance & Optimization" },
       { text: "Custom AI-powered Analytics & Insights" },
@@ -67,87 +71,137 @@ const pricingPlans: PricingPlan[] = [
       { text: "Scalability & Cloud Optimization" },
       { text: "Priority Feature Development & Roadmap Planning" },
       { text: "Security Audits & Compliance Checks" },
+      { text: "24/7 Priority Support" },
     ],
-    buttonText: "Get Started with Scale →",
-    isPopular: true,
+    buttonText: "Get Started with Enterprise →",
   },
 ];
 
 export const Pricing = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section id="pricing" className="py-20 bg-black">
-      <div className="container px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text">
-            Pricing
+    <section id="pricing" className="py-20 md:py-32 px-4">
+      <div className="container mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-sm text-white/70 mb-4">
+            Transparent Pricing
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text mb-4">
+            Simple, Transparent Pricing
           </h2>
-          <p className="text-white/70 mt-4">
-            Choose the Right Plan for Your Success
+          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+            Choose the plan that fits your needs. All plans include 1-week delivery and full support.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Pricing Cards */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
           {pricingPlans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`relative rounded-xl p-8 flex flex-col ${
-                plan.isPopular ? 'border border-blue-500' : 'border border-gray-800'
+              variants={item}
+              className={`relative rounded-2xl backdrop-blur-sm transition-all duration-300 ${
+                plan.isPopular
+                  ? "border border-white/20 bg-white/5 ring-2 ring-white/10 transform md:scale-105"
+                  : "border border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
               }`}
             >
+              {/* Popular Badge */}
               {plan.isPopular && (
-                <span className="absolute top-0 right-8 -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
-                  Most popular
-                </span>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-semibold text-white">
+                    ✨ MOST POPULAR
+                  </div>
+                </div>
               )}
-              
-              <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
-              <div className="mt-4 flex items-baseline">
-                <span className="text-4xl font-bold text-white">${plan.price}</span>
-                <span className="text-gray-400 ml-2">/{plan.period}</span>
-              </div>
-              
-              <p className="mt-4 text-sm text-gray-400">
-                {plan.description}
-              </p>
 
-              <ul className="mt-8 space-y-4 flex-grow">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <svg
-                      className="w-5 h-5 text-blue-500 mr-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-gray-300 text-sm">{feature.text}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                {/* Plan Name */}
+                <h3 className="text-2xl font-semibold text-white mb-2">{plan.name}</h3>
+                <p className="text-white/70 text-sm mb-6">{plan.description}</p>
 
-              <div className="mt-8">
-                <a href="https://cal.com/aidoit.dev/mvp"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className={`w-full py-3 px-6 rounded-lg font-medium inline-block text-center ${
-                     plan.isPopular
-                       ? 'bg-blue-600 text-white hover:bg-blue-700'
-                       : 'bg-black text-white border border-gray-800 hover:bg-gray-900'
-                   }`}
+                {/* Price */}
+                <div className="mb-8">
+                  <div className="flex items-baseline">
+                    <span className="text-5xl font-bold text-white">${plan.price}</span>
+                    <span className="text-white/70 ml-3 text-lg">/{plan.period}</span>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <Link
+                  href="https://cal.com/aidoit.dev/mvp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 px-6 rounded-lg font-semibold mb-8 text-center transition-all duration-300 ${
+                    plan.isPopular
+                      ? "bg-gradient-to-r from-[#FF3BFF] via-[#ECBFBF] to-[#5C24FF] text-white hover:shadow-lg hover:shadow-purple-500/50"
+                      : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                  }`}
                 >
                   {plan.buttonText}
-                </a>
+                </Link>
+
+                {/* Features */}
+                <ul className="space-y-3 flex-grow">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <svg
+                        className="w-5 h-5 text-white/70 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="text-white/70 text-sm">{feature.text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
+        </motion.div>
+
+        {/* FAQ Section */}
+        <div className="mt-20 text-center">
+          <p className="text-white/70 mb-6">
+            Have questions? Let's discuss what works best for your project.
+          </p>
+          <Link
+            href="https://cal.com/aidoit.dev/mvp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-white/10 border border-white/20 rounded-lg text-white hover:bg-white/20 transition-all"
+          >
+            Schedule a Free Consultation
+          </Link>
         </div>
       </div>
     </section>
   );
-}; 
+};
