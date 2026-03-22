@@ -14,6 +14,11 @@ import { Z_INDEX } from "@/constants";
 /* Navigation link configuration */
 const NAV_LINKS = [
   {
+    label: "Use Cases",
+    href: NAVIGATION_LINKS.USECASES,
+    external: false,
+  },
+  {
     label: "How it works",
     href: NAVIGATION_LINKS.HOW_IT_WORKS,
     external: false,

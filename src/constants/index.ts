@@ -28,6 +28,7 @@ export const EXTERNAL_LINKS = {
 } as const;
 
 export const NAVIGATION_LINKS = {
+  USECASES: "/usecases",
   HOW_IT_WORKS: "#how-it-works",
   PRICING: "#pricing",
   FEATURES: "#features",
